@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AjansList Digital Marketing Knowledge Card",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "category",
+    "title",
+    "content",
+    "tags",
+    "language",
+    "country_context",
+    "source_type",
+    "last_reviewed",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+-[0-9]{2}$"
+    },
+    "type": {
+      "enum": [
+        "faq",
+        "info",
+        "decision"
+      ]
+    },
+    "category": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 8
+    },
+    "content": {
+      "type": "string",
+      "minLength": 40
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "language": {
+      "const": "tr"
+    },
+    "country_context": {
+      "type": "string"
+    },
+    "source_type": {
+      "enum": [
+        "editorial_knowledge",
+        "official_documentation",
+        "primary_research",
+        "verified_business_record"
+      ]
+    },
+    "source_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "last_reviewed": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "enum": [
+        "draft_review",
+        "verified",
+        "needs_update",
+        "archived"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
